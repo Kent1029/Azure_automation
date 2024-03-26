@@ -1,7 +1,9 @@
 import json
 import glob
 import sys
+import pandas as pd
 from datetime import datetime
+
 
 def get_today_filename():
     # 取得今天日期
@@ -88,34 +90,73 @@ def cauculate_rule_expire(datas):
     else:
         print(filtered_data)
     print()
-
     return filtered_data
 
 
-def storage_names_as_json(datas):
+def storage_names_as_json_and_excel(datas):
     # 儲存為JSON文件
     today = datetime.today().date()
     today=str(today)
-    filename = f'{today}-expire-in-7-days.json'
+    filename_json = f'{today}-expire-in-7-days.json'
+    filename_excel = f'{today}-expire-in-7-days.xlsx'
     if len(datas) == 0:
         print('Result:')
         print('No data expired in 7 days, no file generated')
     else:
-        with open(f'./Daily_expired_data/{filename}', 'w') as f:
+        # Save as JSON
+        with open(f'./Daily_expired_data/Json/{filename_json}', 'w') as f:
             json.dump(datas, f)
+        
+        # Save as Excel
+        df = pd.DataFrame(datas)
+        df.to_excel(f'./Daily_expired_data/Excel/{filename_excel}', index=True, header=False)
+
         print('Result:')
         print(f'The expired result have been stored in Daily_expired_data folder.')
-        print("File Name：",filename)
+        print("JSON File Name：",filename_json)
+        print("Excel File Name：",filename_excel)
+
+def sent_email(data_expired):
+    recipient_list=[]
+    for data in data_expired:
+        # 分割data得到日期
+        parts = data.split('.')
+        date_str = parts[1] if len(parts) > 2 else None
+        date_str=date_str+"@wistron.com"
+        recipient_list.append(date_str)
+    recipients = ", ".join(recipient_list)
+    #print(recipients)
+    return recipients
+
 
 def run():
     # 程式執行的主要流程
     filename=get_today_filename()
     data=open_json_file(filename)
+    # 把name取出來
     data=extract_rule_name(data)
+    # 資料清洗
     data_clean=clean_rule_name(data)
     #計算有沒有過期
     data_expired=cauculate_rule_expire(data_clean)
-    storage_names_as_json(data_expired)
+    # 儲存為JSON和Excel文件
+    #storage_names_as_json_and_excel(data_expired)
+    recipients=sent_email(data_expired)
+    
+    # 讀取config.py的內容
+    with open('config.py', 'r') as f:
+        lines = f.readlines()
+    # 找到recipients變量的定義並替換它
+    new_lines = []
+    for line in lines:
+        if line.strip().startswith('recipients ='):
+            new_lines.append(f'recipients = "{recipients}"\n')
+        else:
+            new_lines.append(line)
+    # 將修改後的內容寫回config.py
+    with open('config.py', 'w') as f:
+        f.writelines(new_lines)
+    
 
 
 if __name__ == "__main__":

@@ -24,6 +24,11 @@ connectionString="<your connection_String>"
 #connection_string = "DefaultEndpointsProtocol=https;AccountName=xxxx;AccountKey=xxxx;EndpointSuffix=core.windows.net"
 email_account="<your email_accout>"
 email_password="<your email_password>"
+sender="<sender email>"
+recipient="<recipient email>"
+copy_recipient="<copy recipient email>"
+mail_server="<mail server>"
+mail_port="<mail port>"
 ```
 
 #### How to get connection string ？

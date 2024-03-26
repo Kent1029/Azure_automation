@@ -4,8 +4,8 @@ from email.mime.text import MIMEText
 
 email_account = config.email_account
 email_password = config.emil_password
-recipient=config.recipient
 sender=config.sender
+recipient=config.recipient
 copy_recipient=config.copy_recipient
 mail_server=config.mail_server
 mail_port=config.mail_port
