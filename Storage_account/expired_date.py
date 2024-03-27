@@ -19,7 +19,7 @@ def get_today_filename():
         sys.exit(1)
     for filename in files:
         print("Access filename:")
-        print(filename)
+        print(f"Backup-{today}.json")
         print()
     return filename
 
@@ -116,7 +116,7 @@ def storage_names_as_json_and_excel(datas):
         print("JSON File Name：",filename_json)
         print("Excel File Name：",filename_excel)
 
-def sent_email(data_expired):
+def get_mail_recipients(data_expired):
     recipient_list=[]
     for data in data_expired:
         # 分割data得到日期
@@ -126,23 +126,6 @@ def sent_email(data_expired):
         recipient_list.append(date_str)
     recipients = ", ".join(recipient_list)
     #print(recipients)
-    return recipients
-
-
-def run():
-    # 程式執行的主要流程
-    filename=get_today_filename()
-    data=open_json_file(filename)
-    # 把name取出來
-    data=extract_rule_name(data)
-    # 資料清洗
-    data_clean=clean_rule_name(data)
-    #計算有沒有過期
-    data_expired=cauculate_rule_expire(data_clean)
-    # 儲存為JSON和Excel文件
-    #storage_names_as_json_and_excel(data_expired)
-    recipients=sent_email(data_expired)
-    
     # 讀取config.py的內容
     with open('config.py', 'r') as f:
         lines = f.readlines()
@@ -156,8 +139,21 @@ def run():
     # 將修改後的內容寫回config.py
     with open('config.py', 'w') as f:
         f.writelines(new_lines)
-    
+    return recipients
 
+def run():
+    # 程式執行的主要流程
+    filename=get_today_filename()
+    data=open_json_file(filename)
+    # 把name取出來
+    data=extract_rule_name(data)
+    # 資料清洗
+    data_clean=clean_rule_name(data)
+    #計算有沒有過期
+    data_expired=cauculate_rule_expire(data_clean)
+    # 儲存為JSON和Excel文件
+    storage_names_as_json_and_excel(data_expired)
+    get_mail_recipients(data_expired)
 
 if __name__ == "__main__":
     run()

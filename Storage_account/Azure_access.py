@@ -18,7 +18,8 @@ def list_blobs():
             print(blob.name + '\n')
             return blob.name
     else:
-        print('Result: No backup file found today')
+        print('Result:')
+        print('There are no backup files today')
         sys.exit(1)
 
 def download_blob(blob_name):
@@ -31,7 +32,6 @@ def download_blob(blob_name):
 def run():
     blob_name=list_blobs()
     download_blob(blob_name)
-
 
 if __name__ == '__main__':
     run()
