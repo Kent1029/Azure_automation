@@ -1,0 +1,114 @@
+{
+    "properties": {
+        "priority": 65000,
+        "ruleCollections": [
+            {
+                "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
+                "action": {
+                    "type": "Deny"
+                },
+                "name": "deny_fqdn_block_list",
+                "priority": 65000,
+                "rules": [
+                    {
+                        "ruleType": "ApplicationRule",
+                        "name": "test_rule_1",
+                        "protocols": [
+                            {
+                                "protocolType": "Http",
+                                "port": 80
+                            },
+                            {
+                                "protocolType": "Https",
+                                "port": 443
+                            },
+                            {
+                                "protocolType": "Mssql",
+                                "port": 3306
+                            }
+                        ],
+                        "description": [],
+                        "fqdnTags": [],
+                        "webCategories": [],
+                        "targetFqdns": [
+                            "*.ngrok.io",
+                            "administrator-4vng-1312485076.cos-website.ap-nanjing.myqcloud.com",
+                            "Cachefront.online",
+                            "citationsherbe.at",
+                            "exchange.justdied.com",
+                            "exchange.oufca.com.au",
+                            "fget-career.com",
+                            "music.mrbonus.com",
+                            "ngrok.io",
+                            "open.f5dfc308-4c30-40e9-b6fa-0329032b04f0.icu",
+                            "sales.vizvaz.com",
+                            "sandra.prichaonica.com",
+                            "snowmail.fartit.com",
+                            "spamail.sendsmtp.com",
+                            "teematw.com",
+                            "tsiatw.com",
+                            "twtsia.com",
+                            "www.betterhash.net",
+                            "www.sputnikradio.net",
+                            "www.xmlformats.com",
+                            "broker.emqx.io",
+                            "22682.sgdns01.heketwe.com",
+                            "22682.sgdns02.heketwe.com",
+                            "22682.sgdns04.heketwe.com",
+                            "24286.amazon.hksupd.com",
+                            "31206.amazon.hksupd.com",
+                            "31681.amazon.hksupd.com",
+                            "34324.amazon.hksupd.com",
+                            "35un.l.time4vps.cloud",
+                            "36554.amazon.hksupd.com",
+                            "49555.sgdns01.heketwe.com",
+                            "49555.sgdns02.heketwe.com",
+                            "49555.sgdns04.heketwe.com",
+                            "61151.amazon.hksupd.com",
+                            "77749.ussdns02.heketwe.com",
+                            "87172.amazon.hksupd.com",
+                            "87423.cdn1.virtualpoolnet.com",
+                            "89495.ussdns02.heketwe.com",
+                            "96087.amazon.hksupd.com",
+                            "ams05.csksogo.com",
+                            "ap21.gckerda.com",
+                            "cornerth.com",
+                            "dccpulic.lutengtw.com",
+                            "design.organiccrap.com",
+                            "edgekey.whybbot.com",
+                            "gstrap.jkub.com",
+                            "k3ad01.rutentw.com",
+                            "manage.lutengtw.com",
+                            "shed.inkeslive.com",
+                            "teamcorner.nctu.me",
+                            "trust.utoggsv.com",
+                            "wg1.inkesliv.com",
+                            "gpoaccess.com",
+                            "webb.institute.com",
+                            "symantke.com",
+                            "miltonhouse.nl",
+                            "entraide-internationale.fr",
+                            "api.d-n-s.name",
+                            "cpanel.netbar.org",
+                            "clickcom.click",
+                            "clicko.click",
+                            "duorhytm.fun",
+                            "line-api.com",
+                            "areekaweb.com",
+                            "ehangmun.com",
+                            "secure-cama.com"
+                        ],
+                        "targetUrls": [],
+                        "terminateTLS": false,
+                        "sourceAddresses": [
+                            "*"
+                        ],
+                        "destinationAddresses": [],
+                        "sourceIpGroups": [],
+                        "httpHeadersToInsert": []
+                    }
+                ]
+            }
+        ]
+    }
+}

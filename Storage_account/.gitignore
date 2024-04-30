@@ -2,3 +2,7 @@ __pycache__/*
 config.py
 *json
 *.xlsx
+.msmtprc
+minIO/
+.gitignore
+*.html

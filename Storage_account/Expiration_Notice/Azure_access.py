@@ -25,7 +25,7 @@ def list_blobs():
 def download_blob(blob_name):
     blob = BlobClient.from_connection_string(conn_str=connectionString, container_name="backups", blob_name=blob_name)
 
-    with open(f"./Daily_backup_data/Backup-{today}.json", "wb") as my_blob:
+    with open(f"/home/kent/Azure_automation/Storage_account/Expiration_Notice/Daily_backup_data/Backup-{today}.json", "wb") as my_blob:
         blob_data = blob.download_blob()
         blob_data.readinto(my_blob)
 
