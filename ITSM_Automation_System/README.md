@@ -1,6 +1,6 @@
 ## Department Create Ticket to ITSM System
 
-**In this code, you can easily automatically create tickets to the Wistron ITSM system according to daily user needs.**
+**In this code, you can easily automatically create tickets to the ITSM system according to daily user needs.**
 
 ### Environment setup
 ```

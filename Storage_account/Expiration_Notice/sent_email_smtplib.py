@@ -22,7 +22,7 @@ msg=mime.as_string() #將msg將text轉成str
 
 smtp=smtplib.SMTP(mail_server,mail_port)  #mail server and port number
 smtp.ehlo() #申請身分
-# smtp.starttls() #Wistron mail server不支援傳輸層安全 (TLS)私密性與驗證，俗稱 SSL加密。
+# smtp.starttls() #mail server不支援傳輸層安全 (TLS)私密性與驗證，俗稱 SSL加密。
 # smtp.ehlo()
 # smtp.login(email_account, email_password) 
 from_addr=email_account

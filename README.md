@@ -10,3 +10,6 @@ This repository contains a collection of Azure Automation runbooks and scripts t
 
 ### [FireWall Blocklist](FireWall_Blocklist)
 **In the this part, you can add and modify the FQDN Block list from Trend Micro in the Firewall Policy Rule through the Azure API.**
+
+### [ITSM Automation System](ITSM_Automation_System)
+**In this code, you can easily automatically create tickets to the ITSM system according to daily user needs.**

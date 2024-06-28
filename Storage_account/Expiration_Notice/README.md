@@ -9,7 +9,7 @@ conda activate azure
 pip install azure-storage-blob
 ```
 
-### Create PostgreSQL database on [RDS (link)](https://consolewcp.wistron.com/#/DBlist)
+### Create PostgreSQL database on [RDS (link)](https://consolewcp.company.com/#/DBlist)
 You will recive the following information after you create the database.
 1. Host
 2. Database name

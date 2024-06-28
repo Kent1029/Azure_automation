@@ -104,7 +104,7 @@ def get_mail_recipients(data_expired):
         # 分割data得到收件人
         parts = data.split('.')
         name_str = parts[1] if len(parts) > 2 else None
-        name_str=name_str+"@wistron.com"
+        name_str=name_str+"@company.com"
         recipient_list.append(name_str)
     recipients = ", ".join(recipient_list)
     #print(recipients)
