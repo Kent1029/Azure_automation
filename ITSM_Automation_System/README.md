@@ -1,6 +1,6 @@
 ## Department Create Ticket to ITSM System
 
-**In this code, you can easily automatically create tickets to the ITSM system according to daily user needs.**
+**In this code, you can easily automatically create tickets to the Company ITSM system according to daily user needs.**
 
 ### Environment setup
 ```
@@ -75,14 +75,23 @@ python Department_create_ticket_api.py
 ```
 
 ## The script will do the following:
-1. Doload the Block List-IOC Info excel file from the Azure Storage Blob.
-2. Extract the NetWork IP and FQDN data from the excel file.
-3. Replace the temporary JSON file
-4. Upload to Azure FireWall Rule collections
-5. Success
+1. Doload the ITSM_Form_Department.xlsx Info excel file from the Azure Storage Blob.
+2. Extract the Api related data from the excel file.
+3. Call Api with payloads(SubmitTimes, UserMails, UserNames, AdminNames, ProblemTitles, ProblemDescriptions, SolutionWays, Urgents)
+4. Upload the file to the Sharepoint
+5. Delete the yesterday file from the Sharepoint
+6. Success
 
 # Power Automate Describe
+## ITSM Form to create Excel file
+1. When the user completes the form
+2. Automatically update latest replies to SharePoint
+![alt text](ITSM_Form_to_create_Excel_file.png)
 
+
+## ITSM Form to Blob
+1. Automatically obtain SharePoint file content and update it to Blob
+![alt text](ITSM_Form_to_Blob.png)
 
 ```
 #!/usr/bin/python3
