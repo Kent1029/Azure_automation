@@ -86,11 +86,13 @@ python Department_create_ticket_api.py
 ## ITSM Form to create Excel file
 1. When the user completes the form
 2. Automatically update latest replies to SharePoint
+   
 ![alt text](ITSM_Form_to_create_Excel_file.png)
 
 
 ## ITSM Form to Blob
 1. Automatically obtain SharePoint file content and update it to Blob
+   
 ![alt text](ITSM_Form_to_Blob.png)
 
 ```
